@@ -1,0 +1,5 @@
+144 305 282 662 Text_area
+371 353 564 626 Text_area
+798 151 1284 803 Text_area
+1369 53 1471 630 Text_area
+1369 53 1471 630 Text_area

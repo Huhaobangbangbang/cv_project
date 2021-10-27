@@ -1,0 +1,4 @@
+56 165 148 450 Text_area
+275 365 497 599 Text_area
+780 10 1031 842 Text_area
+1216 125 1410 967 Text_area

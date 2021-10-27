@@ -1,0 +1,5 @@
+27 36 168 295 Text_area
+129 262 179 600 Text_area
+311 184 568 795 Text_area
+827 365 992 613 Text_area
+1111 334 1196 597 Text_area

@@ -1,0 +1,5 @@
+207 37 383 186 Text_area
+204 475 359 509 Text_area
+128 537 451 664 Text_area
+60 669 533 733 Text_area
+11 715 218 866 Text_area

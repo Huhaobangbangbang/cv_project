@@ -1,0 +1,6 @@
+28 31 154 408 Text_area
+201 117 447 714 Text_area
+26 615 104 846 Text_area
+489 225 589 535 Text_area
+1062 235 1306 531 Text_area
+581 8 671 846 Text_area

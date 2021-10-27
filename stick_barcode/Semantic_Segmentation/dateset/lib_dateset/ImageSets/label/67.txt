@@ -1,0 +1,3 @@
+212 184 488 469 Text_area
+380 6 570 113 Text_area
+240 683 429 835 Text_area

@@ -1,0 +1,4 @@
+100 305 458 523 Text_area
+227 626 373 774 Text_area
+155 795 414 919 Text_area
+398 1 614 128 Text_area

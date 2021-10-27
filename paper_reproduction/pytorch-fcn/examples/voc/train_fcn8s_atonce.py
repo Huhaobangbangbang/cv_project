@@ -4,8 +4,10 @@ import argparse
 import datetime
 import os
 import os.path as osp
+
 import torch
 import yaml
+
 import torchfcn
 
 from train_fcn32s import get_parameters

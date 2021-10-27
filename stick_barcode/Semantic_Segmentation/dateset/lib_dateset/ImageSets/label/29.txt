@@ -1,0 +1,4 @@
+6 14 159 252 Text_area
+372 84 572 694 Text_area
+658 78 874 502 Text_area
+1083 239 1160 541 Text_area

@@ -1,0 +1,4 @@
+20 20 176 320 Text_area
+279 290 607 720 Text_area
+742 307 1007 537 Text_area
+1159 342 1344 674 Text_area

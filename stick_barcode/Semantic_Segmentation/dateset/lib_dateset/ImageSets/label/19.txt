@@ -1,0 +1,4 @@
+14 20 278 68 Text_area
+259 121 536 325 Text_area
+251 363 401 468 Text_area
+185 850 401 908 Text_area

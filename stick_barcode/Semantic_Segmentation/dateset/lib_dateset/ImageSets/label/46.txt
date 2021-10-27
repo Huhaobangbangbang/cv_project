@@ -1,0 +1,6 @@
+14 13 181 266 Text_area
+16 367 239 811 Text_area
+323 47 657 826 Text_area
+697 46 741 320 Text_area
+754 280 937 496 Text_area
+1094 335 1241 564 Text_area

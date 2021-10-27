@@ -1,0 +1,4 @@
+6 2 184 336 Text_area
+192 216 350 766 Text_area
+396 342 460 626 Text_area
+960 280 1216 646 Text_area

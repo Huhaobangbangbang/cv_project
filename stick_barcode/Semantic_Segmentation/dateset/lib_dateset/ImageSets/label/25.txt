@@ -1,0 +1,6 @@
+4 7 624 204 Text_area
+72 234 576 407 Text_area
+156 424 498 506 Text_area
+510 515 643 664 Text_area
+108 553 471 609 Text_area
+51 678 453 845 Text_area

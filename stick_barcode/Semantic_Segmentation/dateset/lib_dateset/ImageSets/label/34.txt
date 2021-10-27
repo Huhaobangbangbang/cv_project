@@ -1,0 +1,4 @@
+265 17 464 172 Text_area
+4 73 161 159 Text_area
+50 288 482 645 Text_area
+297 659 414 771 Text_area

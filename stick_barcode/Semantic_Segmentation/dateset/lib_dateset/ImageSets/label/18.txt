@@ -1,0 +1,3 @@
+7 11 624 285 Text_area
+190 528 486 778 Text_area
+179 855 426 954 Text_area

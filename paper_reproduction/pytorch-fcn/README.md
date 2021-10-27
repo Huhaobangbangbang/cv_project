@@ -1,4 +1,4 @@
-`# pytorch-fcn
+# pytorch-fcn
 
 [![PyPI Version](https://img.shields.io/pypi/v/torchfcn.svg)](https://pypi.python.org/pypi/torchfcn)
 [![Python Versions](https://img.shields.io/pypi/pyversions/torchfcn.svg)](https://pypi.org/project/torchfcn)
@@ -6,7 +6,7 @@
 
 PyTorch implementation of [Fully Convolutional Networks](https://github.com/shelhamer/fcn.berkeleyvision.org).
 
-`
+
 ## Requirements
 
 - [pytorch](https://github.com/pytorch/pytorch) >= 0.2.0

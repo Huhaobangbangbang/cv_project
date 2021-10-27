@@ -1,0 +1,4 @@
+15 25 189 345 Text_area
+151 275 461 641 Text_area
+731 317 949 569 Text_area
+1093 273 1229 631 Text_area

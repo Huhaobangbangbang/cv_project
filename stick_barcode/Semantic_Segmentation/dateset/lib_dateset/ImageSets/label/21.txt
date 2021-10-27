@@ -1,0 +1,3 @@
+66 2 581 192 Text_area
+33 179 566 407 Text_area
+178 674 481 825 Text_area

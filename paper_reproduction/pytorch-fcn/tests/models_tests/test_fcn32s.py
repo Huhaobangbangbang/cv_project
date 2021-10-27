@@ -1,6 +1,11 @@
+# FIXME: Import order causes error:
+# ImportError: dlopen: cannot load any more object with static TL
+# https://github.com/pytorch/pytorch/issues/2083
 import torch
+
 import numpy as np
 import skimage.data
+
 from torchfcn.models.fcn32s import get_upsampling_weight
 
 
