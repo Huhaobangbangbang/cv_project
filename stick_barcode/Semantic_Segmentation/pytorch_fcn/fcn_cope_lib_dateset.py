@@ -3,7 +3,9 @@
  author： Hao Hu
  @date   2021/10/24 8:59 PM
 """
+
 import os
+os.environ["OMP_NUM_THREADS"] = "1"
 from datetime import datetime
 import numpy as np
 import torch
@@ -12,10 +14,10 @@ from PIL import Image
 from matplotlib import pyplot as plt
 from torch import nn, log_softmax
 from torch.autograd import Variable
+from torch.utils import model_zoo
 from torch.utils.data import Dataset, DataLoader
 import torchvision
 from torchvision.transforms import functional as F
-
 from pytorch_fcn.fcn_16s_cope_voc2012 import img_transforms
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -96,10 +98,8 @@ class VOCSegDataset(Dataset):
         img = self.data_list[idx]
         img1 = img
         label = self.label_list[idx]
-        label1 = label
         img = Image.open(img)
         label = Image.open(label).convert('RGB')
-
         img, label = self.transforms(img, label, self.crop_size)
 
         return img, label
@@ -111,15 +111,12 @@ class VOCSegDataset(Dataset):
 input_shape = (320, 480)
 voc_train = VOCSegDataset(True, input_shape, img_transforms)
 voc_test = VOCSegDataset(False, input_shape, img_transforms)
-
-train_data = DataLoader(voc_train, 64, shuffle=True, num_workers=4)
-valid_data = DataLoader(voc_test, 64, num_workers=4)
-
+os.environ["OMP_NUM_THREADS"] = "1"
+train_data = DataLoader(dataset=voc_train, batch_size=64, shuffle=False, num_workers =4)
+valid_data = DataLoader(dataset=voc_test, batch_size=64, shuffle=False, num_workers=4)
 
 def bilinear_kernel(in_channels, out_channels, kernel_size):
-    '''
-    return a bilinear filter tensor
-    '''
+
     factor = (kernel_size + 1) // 2
     if kernel_size % 2 == 1:
         center = factor - 1
@@ -131,14 +128,7 @@ def bilinear_kernel(in_channels, out_channels, kernel_size):
     weight[range(in_channels), range(out_channels), :, :] = filt
     return torch.from_numpy(weight)
 
-
-# x = Image.open('G:/dataset/VOCtrainval_11-May-2012/VOCdevkit/VOC2012/JPEGImages/2007_005210.jpg')
-# x = np.array(x)
-# plt.imshow(x)
-# print(x.shape)
-
-# pretrained_net = model_zoo.resnet34(pretrained=True)
-pretrained_net = torchvision.models.resnet34(pretrained=True)
+pretrained_net = torchvision.models.resnet34(pretrained = True)
 num_classes = len(classes)
 
 
@@ -149,7 +139,6 @@ class fcn(nn.Module):
         self.stage1 = nn.Sequential(*list(pretrained_net.children())[:-4])  # 第一段
         self.stage2 = list(pretrained_net.children())[-4]  # 第二段
         self.stage3 = list(pretrained_net.children())[-3]  # 第三段
-
         self.scores1 = nn.Conv2d(512, num_classes, 1)
         self.scores2 = nn.Conv2d(256, num_classes, 1)
         self.scores3 = nn.Conv2d(128, num_classes, 1)
@@ -248,11 +237,12 @@ def train1():
     net = fcn(num_classes)
     net.cpu()
     criterion = nn.NLLLoss()
-    print('hello world')
     basic_optim = torch.optim.SGD(net.parameters(),lr=1e-2, weight_decay=1e-4)
     optimizer = ScheduledOptim(basic_optim)
+
     for e in range(80):
         if e > 0 and e % 50 == 0:
+
             optimizer.set_learning_rate(optimizer.learning_rate * 0.1)
         train_loss = 0
         train_acc = 0
@@ -292,9 +282,6 @@ def train1():
         for data in valid_data:
             im = Variable(data[0].cuda(), volatile=True)
             label = Variable(data[1].cuda(), volatile=True)
-            # forward
-            # im = data[0]
-            # label = data[1]
             out = net(im)
             out = log_softmax(out, dim=1)
             loss = criterion(out, label)

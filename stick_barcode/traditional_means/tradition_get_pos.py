@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
+
 def get_gray_scale(img_path):
     # 将图像灰度化
     img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
@@ -21,13 +22,11 @@ def get_gray_scale(img_path):
     pic_matrix = numpy.array(expand_pic)
     print(pic_matrix)
 
-
     cv2.imshow('grayimg', expand_pic)
     cv2.waitKey(0)
 
 
-
-if __name__=='__main__':
+if __name__ == '__main__':
     # get the img_path
-    sample_img_path = 'sample1.jpg'
+    sample_img_path = './sample1.jpg'
     get_gray_scale(sample_img_path)
