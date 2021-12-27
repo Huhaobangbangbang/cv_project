@@ -77,28 +77,28 @@ class RdCrop(tfs.RandomCrop):
 def rand_crop(data, label, height, width):
     '''
     data is PIL.Image object
-    label is PIL.Image object
+    ImagesSet is PIL.Image object
     '''
     # print(data)
     data, rect = RdCrop((height, width))(data)
     # data, rect = RdCrop((100, 100))(data)
-    # label = tfs.FixedCrop(*rect)(label)
+    # ImagesSet = tfs.FixedCrop(*rect)(ImagesSet)
     label = F.crop(label, rect[0], rect[1], rect[2], rect[3])
     # print(type(data))
     # print(data)
     # print(rect[0])
-    # print(label)
+    # print(ImagesSet)
     return data, label
 
 
-# data, label = read_image(voc_root)
+# data, ImagesSet = read_image(voc_root)
 
 # print(data[0])
 # img = cv2.imread(data[0])
 # data1=Image.open(data[0])
 # cropped_image = tfs.RandomCrop(100,100)(image)
-# label1=Image.open(label[0])
-# data,label=rand_crop(data,label,100,100)
+# label1=Image.open(ImagesSet[0])
+# data,ImagesSet=rand_crop(data,ImagesSet,100,100)
 # cv2.imshow("output", cropped_image)
 # cv2.waitKey(0)
 
@@ -124,16 +124,16 @@ for i, cm in enumerate(colormap):
 def image2label(im):
     data = np.array(im, dtype='int32')
     idx = (data[:, :, 0] * 256 + data[:, :, 1]) * 256 + data[:, :, 2]
-    return np.array(cm2lbl[idx], dtype='int64')  # 根据索引得到 label 矩阵
+    return np.array(cm2lbl[idx], dtype='int64')  # 根据索引得到 ImagesSet 矩阵
 
 
-# data, label = read_image(voc_root)
+# data, ImagesSet = read_image(voc_root)
 #
-# label_im = Image.open(label[1]).convert('RGB')
-# label = image2label(label_im)
-# plt.imshow(label)
+# label_im = Image.open(ImagesSet[1]).convert('RGB')
+# ImagesSet = image2label(label_im)
+# plt.imshow(ImagesSet)
 # plt.show()
-# print(label)
+# print(ImagesSet)
 
 def img_transforms(im, label, crop_size):
     im, label = rand_crop(im, label, *crop_size)
@@ -345,7 +345,7 @@ def train1():
             im = Variable(data[0].cuda())
             label = Variable(data[1].cuda())
             # im = data[0]
-            # label = data[1]
+            # ImagesSet = data[1]
             # forward
             out = net(im)
             out = log_softmax(out, dim=1)  # (b, n, h, w)
@@ -376,7 +376,7 @@ def train1():
             label = Variable(data[1].cuda(), volatile=True)
             # forward
             # im = data[0]
-            # label = data[1]
+            # ImagesSet = data[1]
             out = net(im)
             out = log_softmax(out, dim=1)
             loss = criterion(out, label)

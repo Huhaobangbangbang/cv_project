@@ -133,13 +133,14 @@ class Face_Recognizer:
                             self.features_camera_list.append(face_reco_model.compute_face_descriptor(img_rd, shape))
 
                         # 4. 遍历捕获到的图像中所有的人脸 / Traversal all the faces in the database
+                        self.name_camera_list.append("huhao")
+                        self.name_camera_list.append("wusiyao")
                         for k in range(len(faces)):
                             print("##### camera person", k + 1, "#####")
                             # 让人名跟随在矩形框的下方
                             # 确定人名的位置坐标
                             # 先默认所有人不认识，是 unknown
                             # Set the default names of faces with "unknown"
-                            self.name_camera_list.append("Unknown")
 
                             # 每个捕获人脸的名字坐标 / Positions of faces captured
                             self.pos_camera_list.append(tuple(

@@ -95,6 +95,6 @@ if __name__ == '__main__':
     # xml_path是存放xml文件的路径
     xml_path = '/Users/huhao/Documents/cv_project/stick_barcode/Semantic_Segmentation/dateset/lib_dateset/Annotation'
     # outdir 为存放txt文件的路径
-    outdir = '/Users/huhao/Documents/cv_project/stick_barcode/Semantic_Segmentation/dateset/lib_dateset/ImageSets/label'
+    outdir = '/Users/huhao/Documents/cv_project/stick_barcode/Semantic_Segmentation/dateset/lib_dateset/ImageSets/ImagesSet'
     xml_to_txt(xml_path, outdir)
     # copy_xml_to_other_folder(pic_path, xml_path)

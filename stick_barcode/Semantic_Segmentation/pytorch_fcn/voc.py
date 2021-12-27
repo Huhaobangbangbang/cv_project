@@ -45,7 +45,7 @@ class VOCClassSegBase(data.Dataset):
         img_file = data_file['img']
         img = PIL.Image.open(img_file)
         img = np.array(img, dtype=np.uint8)
-        # load label
+        # load ImagesSet
         lbl_file = data_file['lbl']
         lbl = PIL.Image.open(lbl_file)
         lbl = np.array(lbl, dtype=np.int32)

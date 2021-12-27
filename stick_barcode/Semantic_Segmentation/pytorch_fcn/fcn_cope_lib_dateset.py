@@ -77,7 +77,7 @@ for i, cm in enumerate(colormap):
 def image2label(im):
     data = np.array(im, dtype='int32')
     idx = (data[:, :, 0] * 256 + data[:, :, 1]) * 256 + data[:, :, 2]
-    return np.array(cm2lbl[idx], dtype='int64')  # 根据索引得到 label 矩阵
+    return np.array(cm2lbl[idx], dtype='int64')  # 根据索引得到 ImagesSet 矩阵
 data, label = read_image(voc_root)
 
 class VOCSegDataset(Dataset):

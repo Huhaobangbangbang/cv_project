@@ -104,7 +104,7 @@ def learning_curve(log_file):
         plt.xlim((0, row_max['epoch']))
         plt.ylim((0, 1))
         plt.xlabel('epoch')
-        plt.ylabel('%s label accuracy' % split)
+        plt.ylabel('%s ImagesSet accuracy' % split)
 
     out_file = osp.splitext(log_file)[0] + '.png'
     plt.savefig(out_file)
